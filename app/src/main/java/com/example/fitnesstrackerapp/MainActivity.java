@@ -27,10 +27,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     int counter = 3;
     private NavController navController;
 
+    public static DataHelper dbHelper;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         try {
             super.onCreate(savedInstanceState);
+
+            // Initialize the database
+            dbHelper = new DataHelper(getApplicationContext());
+
+//Insert DataHelper Test Data
+            dbHelper.Insert("Home", "Party");
+            dbHelper.Insert("Dashboard", "Boring");
+            dbHelper.Insert("Notifications", "Urgent");
+
 //redirecting to the new login page
             setContentView(R.layout.login);
 

@@ -1,5 +1,7 @@
 package com.example.fitnesstrackerapp.ui.dashboard;
 
+import static com.example.fitnesstrackerapp.MainActivity.dbHelper;
+
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +14,8 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.fitnesstrackerapp.databinding.FragmentDashboardBinding;
 
+import java.util.List;
+
 public class DashboardFragment extends Fragment {
 
     private FragmentDashboardBinding binding;
@@ -23,6 +27,13 @@ public class DashboardFragment extends Fragment {
 
         binding = FragmentDashboardBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
+
+        //Data Test
+        List results = dbHelper.Read("Dashboard");
+        if (results.size() > 0) {
+            String result = results.get(0).toString();
+            dashboardViewModel.SetText("Dashboard: " + result);
+        }
 
         final TextView textView = binding.textDashboard;
         dashboardViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
