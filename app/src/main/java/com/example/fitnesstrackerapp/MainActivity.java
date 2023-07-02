@@ -1,5 +1,6 @@
 package com.example.fitnesstrackerapp;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -16,11 +17,15 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.example.fitnesstrackerapp.databinding.ActivityMainBinding;
 
+import android.view.Menu;
+import android.view.MenuItem;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private ActivityMainBinding binding;
     Button b1, b2;
     EditText ed1, ed2;
     int counter = 3;
+    private NavController navController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +67,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
                         R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications)
                         .build();
-                NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
+                navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
                 NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
                 NavigationUI.setupWithNavController(binding.navView, navController);
                 return;
@@ -81,5 +86,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (counter <= 0) {
             b1.setEnabled(false);
         }
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.settings_menu, menu);
+        return true;
+    }
+    
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if(item.getItemId() == R.id.navigation_home){
+            navController.navigate(R.id.navigation_home);
+        }
+
+        if(item.getItemId() == R.id.navigation_dashboard){
+            navController.navigate(R.id.navigation_dashboard);
+        }
+
+        if(item.getItemId() == R.id.navigation_notifications){
+            navController.navigate(R.id.navigation_notifications);
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }
