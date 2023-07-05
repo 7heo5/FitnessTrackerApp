@@ -23,11 +23,6 @@ public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding binding;
 
-    GridView gridView;
-    static final String[] MOBILE_OS = new String[]{
-            "Hitting", "Hungry", "Bullying", "Shouting", "Torture"
-    };
-
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         HomeViewModel homeViewModel =
@@ -36,22 +31,8 @@ public class HomeFragment extends Fragment {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        //Needs to happen after 'inflate', or there is no item on page to be found
-        gridView = (GridView) root.findViewById(R.id.gridView1);
-        gridView.setAdapter(new ImageAdapter(getContext(), MOBILE_OS));
-
-        // Listens for image click
-        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> parent, View v,
-                                    int position, long id) {
-                Toast.makeText(
-                        getContext(),
-                        ((TextView) v.findViewById(R.id.grid_item_label))
-                                .getText(), Toast.LENGTH_SHORT).show();
-
-            }
-        });
-
+//        final TextView textView = binding.textHome;
+//        homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 
