@@ -22,8 +22,8 @@ import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private ActivityMainBinding binding;
-    Button b1, b2;
-    EditText ed1, ed2;
+    Button loginButton;
+    EditText username, password;
     int counter = 3;
     private NavController navController;
 
@@ -46,12 +46,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             setContentView(R.layout.login);
 
 //setup the button to use the listener, and send to the new method
-            b1 = (Button) findViewById(R.id.button1);
-            b1.setOnClickListener(this::onClick);
+            loginButton = (Button) findViewById(R.id.loginButton);
+            loginButton.setOnClickListener(this::onClick);
 
             //find the inputs for the click event
-            ed1 = (EditText) findViewById(R.id.editText1);
-            ed2 = (EditText) findViewById(R.id.editText2);
+            username = (EditText) findViewById(R.id.usernameText);
+            password = (EditText) findViewById(R.id.passwordText);
         }
         catch (Exception ex)
         {
@@ -64,12 +64,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v)
     {
         try {
-            // this is cryptographically insecure, and not recommended
-            if (ed1.getText().toString().equals("admin") && ed2.getText().toString().equals("admin"))
+            if (username.getText().toString().length() == 0 || password.getText().toString().length() == 0)
             {
-//if username and password are accepted
                 Toast.makeText(getApplicationContext(),
-                        "Redirecting...", Toast.LENGTH_SHORT).show();
+                        "You have not entered any credentials", Toast.LENGTH_SHORT).show();
+            }
+            else if (username.getText().toString().equals("henchman") && password.getText().toString().equals("password"))
+            {
+                Toast.makeText(getApplicationContext(),
+                        "Login Successful", Toast.LENGTH_SHORT).show();
                 binding = ActivityMainBinding.inflate(getLayoutInflater());
                 setContentView(binding.getRoot());
                 BottomNavigationView navView = findViewById(R.id.nav_view);
@@ -95,7 +98,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //disable button after 3 attempts for better security
         counter--;
         if (counter <= 0) {
-            b1.setEnabled(false);
+            loginButton.setEnabled(false);
         }
     }
 
@@ -105,16 +108,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
     
     public boolean onOptionsItemSelected(MenuItem item) {
-        if(item.getItemId() == R.id.navigation_home){
-            navController.navigate(R.id.navigation_home);
-        }
-
-        if(item.getItemId() == R.id.navigation_dashboard){
-            navController.navigate(R.id.navigation_dashboard);
-        }
-
-        if(item.getItemId() == R.id.navigation_notifications){
-            navController.navigate(R.id.navigation_notifications);
+        if(item.getItemId() == R.id.navigation_login){
+            System.exit(0);
         }
 
         return super.onOptionsItemSelected(item);

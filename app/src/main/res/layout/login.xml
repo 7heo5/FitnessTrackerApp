@@ -1,57 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:id="@+id/login"
     android:orientation="vertical"
-    android:background="#000"
+    android:gravity="center"
+    android:background="@drawable/barbell"
     tools:context=".MainActivity">
 
     <androidx.cardview.widget.CardView
-        android:layout_margin="64dp"
+        android:layout_margin="30dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        card_view:cardCornerRadius="8dp"
-        card_view:cardElevation="8dp"
-        android:background="#fff">
+        card_view:cardCornerRadius="30dp"
+        card_view:cardElevation="20dp"
+        android:background="@drawable/custom_edittext">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:layout_gravity="center_horizontal"
             android:padding="24dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sign In"
+                android:id="@+id/loginText"
+                android:textSize="36sp"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:fontFamily="@font/alata"
+                android:textColor="@color/background_colour"/>
+
             <EditText
-                android:layout_width = "wrap_content"
-                android:layout_height = "wrap_content"
-                android:layout_gravity="fill_vertical"
-                android:id = "@+id/editText1"
-                android:hint = "Enter Name"
-                android:focusable = "true"
-                android:textColorHighlight = "#ff7eff15"
-                android:textColorHint = "#ffff25e6"
+                android:id="@+id/usernameText"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/custom_edittext"
+                android:drawableLeft="@drawable/baseline_person_24"
+                android:drawablePadding="8dp"
+                android:hint="Username"
+                android:padding="8dp"
+                android:textColor="@color/background_colour"
+                android:textColorHighlight="@color/cardview_dark_background"
+                android:layout_marginTop="40dp"
                 tools:ignore="MissingConstraints" />
 
             <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:inputType="textPassword"
-                android:id="@+id/editText2"
-                android:textColorHint="#ffff299f"
+                android:id="@+id/passwordText"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/custom_edittext"
+                android:drawableLeft="@drawable/baseline_lock_24"
+                android:drawablePadding="8dp"
                 android:hint="Password"
+                android:inputType="textPassword"
+                android:padding="8dp"
+                android:textColor="@color/background_colour"
+                android:textColorHighlight="@color/cardview_dark_background"
+                android:layout_marginTop="5dp"
                 tools:ignore="MissingConstraints" />
 
             <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/button1"
+                android:id="@+id/loginButton"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
                 android:hint="Login"
                 android:onClick="OnClick"
                 android:text="@string/Login"
-                android:textColorHint="#ffff299f"
+                android:textSize="18sp"
+                android:fontFamily="@font/alata"
+                android:textStyle="bold"
+                android:layout_marginTop="30dp"
+                android:backgroundTint="@color/purple_200"
+                app:cornerRadius="20dp"
+                android:textColorHint="@color/white"
                 tools:ignore="MissingConstraints" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="Not yet registered? Sign Up Now"
+        android:textSize="14sp"
+        android:textAlignment="center"
+        android:fontFamily="@font/alata"
+        android:id="@+id/signUpText"
+        android:textColor="@color/white"
+        android:layout_marginBottom="20dp"/>
 </LinearLayout>
