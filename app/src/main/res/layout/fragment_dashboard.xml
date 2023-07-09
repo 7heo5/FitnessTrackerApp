@@ -1,12 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background_colour"
     tools:context=".ui.dashboard.DashboardFragment">
 
-    <GridView xmlns:android="http://schemas.android.com/apk/res/android"
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:gravity="center_horizontal"
+        android:padding="5dp"
+        android:id="@+id/idTVHeading"
+        android:text="GymGenius"
+        android:textAllCaps="false"
+        android:fontFamily="@font/alata"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="20sp"/>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/idTVHeading"
+        android:id="@+id/ExerciseInfo"
+        android:weightSum="2">
+        
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="150"
+                android:textColor="@color/white"
+                android:fontFamily="@font/alata"
+                android:padding="9dp"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:layout_gravity="center"
+                android:id="@+id/CaloriesCount"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-5dp"
+                android:fontFamily="@font/alata"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:text="KCAL"
+                android:textColor="@color/text_colour"
+                android:textSize="15dp"
+                android:textAllCaps="true"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="50-55"
+                android:textColor="@color/white"
+                android:fontFamily="@font/alata"
+                android:padding="9dp"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:layout_gravity="center"
+                android:id="@+id/TimePrediction"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-5dp"
+                android:fontFamily="@font/alata"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:text="MINS"
+                android:textColor="@color/text_colour"
+                android:textSize="15dp"
+                android:textAllCaps="true"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="10dp"
+        android:background="@color/white"
+        android:layout_below="@+id/ExerciseInfo"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/ExerciseInfo"
+        android:layout_marginTop="10dp"/>
+
+    <!--<GridView xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/gridView1"
         android:numColumns="1"
         android:gravity="center"
@@ -15,6 +120,6 @@
         android:layout_height="fill_parent"
         android:layout_marginTop="0px"
         tools:ignore="MissingConstraints">
-    </GridView>
+    </GridView>-->
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>
