@@ -4,4 +4,20 @@
     <string name="title_dashboard">Exercises</string>
     <string name="title_notifications">Planner</string>
     <string name="Login" />
+
+    <string name="side_plank">
+        Benefits of the Plank \n1) Helps improve your posture. \n2) Ability to provide flexibility. \n3) Reduces stomach fat \n4) It can help strengthen your core.
+    </string>
+    <string name="lunges">
+        Benefits of Lunges \n1) Helps improve your leg strength. \n2) Improved balance and coordination. \n3) Functional movement. \n4) Core activation.
+    </string>
+    <string name="push_ups">
+        Benefits of Push-Ups \n1) Helps improve your Upper body strength. \n2) Core stabilization. \n3) Improved posture. \n4) Functional upper body movement.
+    </string>
+    <string name="crunches">
+        Benefits of Abdominal Crunches \n1) Helps improve your Abdominal strength. \n2) Flexibility and mobility. \n3) Postural support. \n4) Enhanced athletic performance.
+    </string>
+    <string name="tricep_dips">
+        Benefits of Tricep-Dips \n1) Triceps strength and development. \n2) Improved upper body pushing power. \n3) Enhanced functional fitness. \n4) Increased upper body stability and balance.
+    </string>
 </resources>
