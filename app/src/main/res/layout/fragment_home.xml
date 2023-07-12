@@ -33,7 +33,7 @@
             android:fontFamily="@font/alata"
             android:gravity="center"
             android:padding="8dp"
-            android:text="Welcome to the GymGenius App, let's workout!"
+            android:text="Welcome to the GymGenius App, lets workout!"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="20sp"
